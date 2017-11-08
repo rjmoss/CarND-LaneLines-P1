@@ -1,17 +1,12 @@
 # **Finding Lane Lines on the Road** 
 
 ## Robert Moss LaneLines-P1 submission
----
-
-**Finding Lane Lines on the Road**
 
 [//]: # (Image References)
 
 [image1]: ./debug_output/solidYellowCurve2Result.jpg "Grouped Hough Lines"
 
----
-
-### Reflection
+[image2]: ./test_image_results/solidYellowCurve2Result.jpg "Full lane boundaries"
 
 ### 1. Pipeline
 
@@ -29,6 +24,10 @@ There's also a DEBUG variable which, when True, draws the hough lines on the ima
 
 ![alt text][image1]
 
+After the lines have been averaged and extrapolated:
+
+![alt text][image2]
+
 
 ### 2. Shortcomings
 
@@ -40,5 +39,7 @@ The pipeline has various shortcomings due to the various assumptions made when c
 ### 3. Improvements
 
 A possible improvement to the pipeline could be to take the colour of the lines into account. For example the lanes are always a lighter shade (yellow or white) than the road (at least in the example images/videos) but the shadows are darker. Filtering for lighter colours could remove the noise from the dark shadows without losing the lines.
+
+Another possible improvement is a tighter range of accepted line gradients (e.g. lines nearly horizontal should never be considered, but maybe only line s with gradients between say 30-60 degrees (or -30 to -60) from the horizontal should be considered to be lane boundaries.
 
 Another possible improvement could be to fit a higher degree polynomial as the lane boundary, to take into account the curve in the road.
